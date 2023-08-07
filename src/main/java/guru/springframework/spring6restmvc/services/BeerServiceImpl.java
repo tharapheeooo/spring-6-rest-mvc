@@ -100,4 +100,9 @@ public class BeerServiceImpl implements BeerService {
         exsitsing.setQuantityOnHand(beer.getQuantityOnHand());
         //beerMap.put(exsitsing.getId(),exsitsing);
     }
+
+    @Override
+    public void deleteById(UUID beerId) {
+        beerMap.remove(beerId);
+    }
 }
