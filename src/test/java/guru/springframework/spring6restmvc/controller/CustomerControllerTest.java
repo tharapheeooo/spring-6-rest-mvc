@@ -35,6 +35,7 @@ class CustomerControllerTest {
                .andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                .andExpect(jsonPath("$.length()", is(3)));
+
     }
 
     @Test

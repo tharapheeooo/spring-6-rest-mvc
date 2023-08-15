@@ -56,5 +56,6 @@ class BeerControllerTest {
                 .andExpect(jsonPath("$.id", is(testBeer.getId().toString())))
                 .andExpect(jsonPath("$.beerName", is(testBeer.getBeerName())));
 
+
     }
 }
