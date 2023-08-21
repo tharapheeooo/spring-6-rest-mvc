@@ -16,6 +16,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RestController
 public class CustomerController {
+    public static final String CUSTOMER_PATH = "/api/v1/customer";
+    public static final String CUSTOMER_PATH_ID = CUSTOMER_PATH + "/{customerId}";
 
     private final CustomerService customerService;
 
@@ -56,5 +58,10 @@ public class CustomerController {
         //log.debug("Get Beer by Id - in controller");
 
         return customerService.getCustomerById(customerId);
+    }
+
+    @ExceptionHandler(NotfoundException.class)
+    public  ResponseEntity handleNotFoundException(){
+        return ResponseEntity.notFound().build();
     }
 }

@@ -20,6 +20,9 @@ import java.util.UUID;
 @RequestMapping("/api/v1/beer")
 public class BeerController {
 
+    public static final String BEER_PATH = "/api/v1/beer";
+    public static final String BEER_PATH_ID = BEER_PATH + "/{beerId}";
+
     private final BeerService beerService;
 
     @PatchMapping("{beerId}")
@@ -61,6 +64,7 @@ public class BeerController {
 
         log.debug("Get Beer by Id - in controller -- 123  rrr");
 
-        return beerService.getBeerById(beerId);
+        return beerService.getBeerById(beerId).orElseThrow(NotfoundException::new);
     }
+
 }
